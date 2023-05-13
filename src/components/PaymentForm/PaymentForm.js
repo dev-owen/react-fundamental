@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import "./PaymentForm.css";
 
-const PaymentForm = () => {
+const PaymentForm = ({ getPaymentFormData }) => {
 	const [objectState, setObjectState] = useState({
 		name: "",
 		price: 0,
@@ -33,7 +33,8 @@ const PaymentForm = () => {
 	const buttonSubmitHander = (event) => {
 		event.preventDefault();
 
-		console.log(objectState);
+		getPaymentFormData(objectState);
+		// console.log(objectState);
 
 		setObjectState({
 			name: "",
