@@ -44,10 +44,10 @@ const PaymentForm = ({ getPaymentFormData }) => {
 	};
 
 	return (
-		<div className="new-payment">
+		<div className="newPayment">
 			<form onSubmit={buttonSubmitHander}>
-				<div className="new-payment__controls">
-					<div className="new-payment__control">
+				<div className="newPaymentControls">
+					<div className="newPaymentControl">
 						<label>이름</label>
 						<input
 							type="text"
@@ -55,7 +55,7 @@ const PaymentForm = ({ getPaymentFormData }) => {
 							value={objectState.name}
 						/>
 					</div>
-					<div className="new-payment__control">
+					<div className="newPaymentControl">
 						<label>금액</label>
 						<input
 							type="number"
@@ -65,7 +65,7 @@ const PaymentForm = ({ getPaymentFormData }) => {
 							value={objectState.price}
 						/>
 					</div>
-					<div className="new-payment__control">
+					<div className="newPaymentControl">
 						<label>날짜</label>
 						<input
 							type="date"
@@ -76,7 +76,7 @@ const PaymentForm = ({ getPaymentFormData }) => {
 						/>
 					</div>
 				</div>
-				<div className="new-payment__actions">
+				<div className="newPaymentActions">
 					<button type="submit">결제 추가</button>
 				</div>
 			</form>
