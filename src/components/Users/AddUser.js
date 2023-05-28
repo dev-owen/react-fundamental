@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Card from '../UI/Card';
 import Button from '../UI/Button';
 import ErrorModal from '../UI/ErrorModal';
+import Wrapper from '../Helpers/Wrapper';
 import classes from './AddUser.module.css';
 
 const AddUser = (props) => {
@@ -15,14 +16,14 @@ const AddUser = (props) => {
     if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
       setError({
         title: '유효하지 않은 입력값',
-        message: '유효한 나이와 이름을 입력하세요 (비어 있지 않은 값).',
+        message: '유효한 나이와 이름을 입력해주세요 (빈 값이 아닌).',
       });
       return;
     }
     if (+enteredAge < 1) {
       setError({
         title: '유효하지 않은 나이',
-        message: '유효한 나이 값을 입력하세요 (> 0).',
+        message: '유효한 나이를 입력해주세요 (> 0).',
       });
       return;
     }
@@ -44,7 +45,7 @@ const AddUser = (props) => {
   };
 
   return (
-    <div>
+    <Wrapper>
       {error && (
         <ErrorModal
           title={error.title}
@@ -54,7 +55,7 @@ const AddUser = (props) => {
       )}
       <Card className={classes.input}>
         <form onSubmit={addUserHandler}>
-          <label htmlFor="username">사용자명</label>
+          <label htmlFor="username">사용자 이름</label>
           <input
             id="username"
             type="text"
@@ -71,7 +72,7 @@ const AddUser = (props) => {
           <Button type="submit">사용자 추가</Button>
         </form>
       </Card>
-    </div>
+    </Wrapper>
   );
 };
 
