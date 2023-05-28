@@ -15,15 +15,15 @@ const AddUser = (props) => {
     event.preventDefault();
     if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
       setError({
-        title: 'Invalid input',
-        message: 'Please enter a valid name and age (non-empty values).',
+        title: '유효하지 않은 입력값',
+        message: '유효한 나이와 이름을 입력해주세요 (빈 값이 아닌).',
       });
       return;
     }
     if (+enteredAge < 1) {
       setError({
-        title: 'Invalid age',
-        message: 'Please enter a valid age (> 0).',
+        title: '유효하지 않은 나이',
+        message: '유효한 나이를 입력해주세요 (> 0).',
       });
       return;
     }
@@ -55,21 +55,21 @@ const AddUser = (props) => {
       )}
       <Card className={classes.input}>
         <form onSubmit={addUserHandler}>
-          <label htmlFor="username">Username</label>
+          <label htmlFor="username">사용자 이름</label>
           <input
             id="username"
             type="text"
             value={enteredUsername}
             onChange={usernameChangeHandler}
           />
-          <label htmlFor="age">Age (Years)</label>
+          <label htmlFor="age">나이</label>
           <input
             id="age"
             type="number"
             value={enteredAge}
             onChange={ageChangeHandler}
           />
-          <Button type="submit">Add User</Button>
+          <Button type="submit">사용자 추가</Button>
         </form>
       </Card>
     </Wrapper>
