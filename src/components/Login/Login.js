@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer, useContext } from 'react';
+import React, {useState, useEffect, useReducer, useContext} from 'react';
 
 import Card from '../UI/Card/Card';
 import classes from './Login.module.css';
@@ -34,11 +34,11 @@ const Login = (props) => {
 
   const [emailState, dispatchEmail] = useReducer(emailReducer, {
     value: '',
-    isValid: null,
+    isValid: null
   });
   const [passwordState, dispatchPassword] = useReducer(passwordReducer, {
     value: '',
-    isValid: null,
+    isValid: null
   });
 
   const authCtx = useContext(AuthContext);
@@ -90,7 +90,9 @@ const Login = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    authCtx.onLogin(emailState.value, passwordState.value);
+    if (formIsValid) {
+      authCtx.onLogin(emailState.value, passwordState.value);
+    }
   };
 
   return (
@@ -125,7 +127,7 @@ const Login = (props) => {
           />
         </div>
         <div className={classes.actions}>
-          <Button type="submit" className={classes.btn} disabled={!formIsValid}>
+          <Button type="submit" className={classes.btn}>
             로그인
           </Button>
         </div>
