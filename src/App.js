@@ -1,15 +1,17 @@
-import Counter from './components/Counter';
-import Auth from './components/Auth';
-import Header from './components/Header';
+import { useSelector } from 'react-redux';
 
+import Cart from './components/Cart/Cart';
+import Layout from './components/Layout/Layout';
+import Products from './components/Shop/Products';
 
 function App() {
+  const showCart = useSelector((state) => state.ui.cartIsVisible);
+
   return (
-    <>
-      {/*<Header />*/}
-      {/*<Auth />*/}
-      <Counter />
-    </>
+    <Layout>
+      {showCart && <Cart />}
+      <Products />
+    </Layout>
   );
 }
 
