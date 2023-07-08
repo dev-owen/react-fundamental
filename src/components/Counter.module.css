@@ -17,7 +17,11 @@
 
 .value {
   font-size: 2rem;
-  color: #3c0080;
+  color: saddlebrown;
   margin: 2rem 0;
   font-weight: bold;
+}
+
+.counter button {
+  margin: 1rem;
 }

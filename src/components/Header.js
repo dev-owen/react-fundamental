@@ -7,13 +7,10 @@ const Header = () => {
       <nav>
         <ul>
           <li>
-            <a href='/'>My Products</a>
+            <a href='/'>내 상품들</a>
           </li>
           <li>
-            <a href='/'>My Sales</a>
-          </li>
-          <li>
-            <button>Logout</button>
+            <button>로그아웃</button>
           </li>
         </ul>
       </nav>
