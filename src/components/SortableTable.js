@@ -54,6 +54,7 @@ function SortableTable(props) {
     const { sortValue } = config.find((column) => column.label === sortBy);
     sortedData = [...data].sort((a, b) => {
       // TODO - 정렬된 데이터로 바꿔 끼우는 부분 들어갈 comparator 함수
+      //테스트 되는지 확인해봐 commit
       const valueA = sortValue(a);
       const valueB = sortValue(b);
 
@@ -98,6 +99,7 @@ function getIcons(label, sortBy, sortOrder) {
   } else if (sortOrder === 'desc') {
     return (
       <div>
+     
         <GoArrowDown />
       </div>
     );
