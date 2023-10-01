@@ -7,11 +7,16 @@ import "./Expenses.css";
 const Expenses = (props) => {
 	return (
 		<Card className="expenses">
-			{props.items.map((item) => (
+			{props.items.map((item, index) => (
 				<ExpenseItem
+					key={item.id}
+					id={item.id}
+					//id값 추가함
+					index={index}
 					title={item.title}
 					amount={item.amount}
 					date={item.date}
+					deleteExpenseItem={props.deleteExpenseItem}
 				/>
 			))}
 		</Card>
@@ -19,3 +24,4 @@ const Expenses = (props) => {
 };
 
 export default Expenses;
+
