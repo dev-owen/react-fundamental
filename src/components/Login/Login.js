@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useReducer, useContext} from 'react';
+import React, {useState, useEffect, useReducer, useContext, useRef} from 'react';
 
 import Card from '../UI/Card/Card';
 import classes from './Login.module.css';
@@ -42,6 +42,9 @@ const Login = (props) => {
   });
 
   const authCtx = useContext(AuthContext);
+
+  const emailInputRef = useRef();
+  const passwordInputRef = useRef();
 
   useEffect(() => {
     console.log('EFFECT RUNNING');
@@ -92,6 +95,12 @@ const Login = (props) => {
     event.preventDefault();
     if (formIsValid) {
       authCtx.onLogin(emailState.value, passwordState.value);
+    } else if (!emailIsValid) {
+      // 이메일 창에 focus
+      emailInputRef.current.focus();
+    } else {
+      // 비밀번호 창에 focus
+      passwordInputRef.current.focus();
     }
   };
 
@@ -110,6 +119,7 @@ const Login = (props) => {
             value={emailState.value}
             onChange={emailChangeHandler}
             onBlur={validateEmailHandler}
+            ref={emailInputRef}
           />
         </div>
         <div
@@ -124,6 +134,7 @@ const Login = (props) => {
             value={passwordState.value}
             onChange={passwordChangeHandler}
             onBlur={validatePasswordHandler}
+            ref={passwordInputRef}
           />
         </div>
         <div className={classes.actions}>
