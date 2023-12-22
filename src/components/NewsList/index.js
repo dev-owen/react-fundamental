@@ -1,7 +1,24 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import NewsItem from '../NewsItem';
 
 const NewsList = () => {
+
+  const [news, setNews] = useState([]);
+
+  useEffect(()=>{
+    getNewsList();
+  }, []);
+
+  const getNewsList = () => {
+    fetch('https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=06b21f71f1714078af2c68958a1dbcd5').then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setNews(data.articles)
+      })
+  }
+
+  //무한루프 원인 getNewsList();
+
 
   const dummy = [
     {
@@ -46,7 +63,7 @@ const NewsList = () => {
   ]
   return (
     <div>
-      {dummy.map(news => <NewsItem {...news} />)}
+      {news.map(news => <NewsItem {...news} />)}
     </div>
   );
 };
