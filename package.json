@@ -8,8 +8,13 @@
     "@testing-library/user-event": "^12.5.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-icons": "^4.10.1",
     "react-scripts": "^5.0.1",
+<<<<<<< HEAD
     "styled-components": "^6.1.2",
+=======
+    "tailwindcss": "^3.3.2",
+>>>>>>> c690ed76214281c74d952da43b39bb0d96bc2a3d
     "web-vitals": "^0.2.4"
   },
   "scripts": {

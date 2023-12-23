@@ -69,3 +69,4 @@ const NewsList = () => {
 };
 
 export default NewsList;
+
